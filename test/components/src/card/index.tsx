@@ -1,4 +1,4 @@
-import { messageFromUtils, messageFromUtils2 } from '@e2e/recursive-dev-utils';
+import { messageFromUtils, messageFromUtils2 } from '@e2e/workspace-dev-utils';
 import './index.css';
 
 export const Card = () => {

@@ -1,1 +1,1 @@
-# @rsbuild/recursive-dev-plugin
+# rsbuild-plugin-workspace-dev

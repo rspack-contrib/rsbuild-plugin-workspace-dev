@@ -1,5 +1,5 @@
 {
-  "name": "@e2e/recursive-dev-app",
+  "name": "@e2e/workspace-dev-app",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -7,10 +7,10 @@
     "dev": "rsbuild dev"
   },
   "dependencies": {
-    "@e2e/recursive-dev-components": "workspace:*",
-    "@e2e/recursive-dev-utils2": "workspace:*"
+    "@e2e/workspace-dev-components": "workspace:*",
+    "@e2e/workspace-dev-utils2": "workspace:*"
   },
   "devDependencies": {
-    "@rsbuild/plugin-recursive-dev": "workspace:*"
+    "rsbuild-plugin-workspace-dev": "workspace:*"
   }
 }

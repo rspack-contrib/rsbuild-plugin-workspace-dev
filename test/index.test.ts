@@ -1,8 +1,8 @@
 import { getPackagesSync } from '@manypkg/get-packages';
 import { expect, it, rs } from '@rstest/core';
 import { exec, spawn } from 'child_process';
-import { RecursiveRunner } from '../src/recursive-dev';
 import { readPackageJson } from '../src/utils';
+import { WorkspaceDevRunner } from '../src/workspace-dev';
 
 const scripts = {
   a: 'dev a',
@@ -126,7 +126,7 @@ it('test', async () => {
     }
     return matched;
   };
-  const runner = new RecursiveRunner({
+  const runner = new WorkspaceDevRunner({
     projectConfig: {
       a: {
         match: (stdout) => matchFn(stdout, 'a'),

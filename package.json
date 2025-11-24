@@ -1,8 +1,8 @@
 {
-  "name": "@rsbuild/plugin-recursive-dev",
+  "name": "rsbuild-plugin-workspace-dev",
   "version": "0.0.1",
-  "description": "An Rsbuild plugin to provides recursive dev functionality for Monorepo topologies.",
-  "repository": "https://github.com/rspack-contrib/rsbuild-plugin-recursive-dev",
+  "description": "An Rsbuild plugin to provides workspace recursive dev functionality for Monorepo topologies.",
+  "repository": "https://github.com/rspack-contrib/rsbuild-plugin-workspace-dev",
   "license": "MIT",
   "type": "module",
   "exports": {

@@ -1,5 +1,5 @@
 {
-  "name": "@e2e/recursive-dev-components",
+  "name": "@e2e/workspace-dev-components",
   "version": "0.0.0",
   "type": "module",
   "exports": {
@@ -17,9 +17,9 @@
     "dev": "rslib build --watch"
   },
   "devDependencies": {
-    "@e2e/recursive-dev-utils": "workspace:*",
+    "@e2e/workspace-dev-utils": "workspace:*",
     "@rsbuild/plugin-react": "^1.4.1",
-    "@rslib/core": "https://pkg.pr.new/@rslib/core@06563fd",
+    "@rslib/core": "0.18.0",
     "@types/react": "^19.2.2",
     "react": "^19.2.0",
     "typescript": "^5.9.3"

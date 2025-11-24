@@ -1,5 +1,5 @@
 {
-  "name": "@e2e/recursive-dev-utils2",
+  "name": "@e2e/workspace-dev-utils2",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -22,6 +22,6 @@
     "dev": "rslib build --watch"
   },
   "devDependencies": {
-    "@rslib/core": "https://pkg.pr.new/@rslib/core@06563fd"
+    "@rslib/core": "0.18.0"
   }
 }

@@ -17,7 +17,7 @@ interface GraphNode {
   path: string;
 }
 
-export interface RecursiveRunnerOptions {
+export interface WorkspaceDevRunnerOptions {
   cwd?: string;
   workspaceFilePath?: string;
   projectConfig?: Record<
@@ -29,8 +29,8 @@ export interface RecursiveRunnerOptions {
   >;
 }
 
-export class RecursiveRunner {
-  private options: RecursiveRunnerOptions;
+export class WorkspaceDevRunner {
+  private options: WorkspaceDevRunnerOptions;
   private cwd: string;
   private workspaceFilePath: string;
   private packages: Package[] = [];
@@ -39,7 +39,7 @@ export class RecursiveRunner {
   private visiting: Record<string, boolean>;
   private metaData!: Package['packageJson'];
 
-  constructor(options: RecursiveRunnerOptions) {
+  constructor(options: WorkspaceDevRunnerOptions) {
     this.options = options;
     this.cwd = options.cwd || process.cwd();
     this.workspaceFilePath = options.workspaceFilePath || this.cwd;

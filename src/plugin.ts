@@ -1,19 +1,19 @@
 import type { RsbuildPlugin } from '@rsbuild/core';
 import { Logger } from './logger.js';
 import {
-  RecursiveRunner,
-  type RecursiveRunnerOptions,
-} from './recursive-dev.js';
+  WorkspaceDevRunner,
+  type WorkspaceDevRunnerOptions,
+} from './workspace-dev.js';
 
-export function pluginRecursiveDev(
-  options?: RecursiveRunnerOptions,
+export function pluginWorkspaceDev(
+  options?: WorkspaceDevRunnerOptions,
 ): RsbuildPlugin {
   return {
-    name: 'rsbuild-plugin-recursive-dev',
+    name: 'rsbuild-plugin-workspace-dev',
     async setup(api) {
       const rootPath = api.context.rootPath;
       api.onBeforeStartDevServer(async () => {
-        const runner = new RecursiveRunner({
+        const runner = new WorkspaceDevRunner({
           cwd: rootPath,
           ...options,
         });

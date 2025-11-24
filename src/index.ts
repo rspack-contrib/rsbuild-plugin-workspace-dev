@@ -1,5 +1,5 @@
-export { pluginRecursiveDev } from './plugin.js';
+export { pluginWorkspaceDev } from './plugin.js';
 export {
-  RecursiveRunner,
-  type RecursiveRunnerOptions,
-} from './recursive-dev.js';
+  WorkspaceDevRunner,
+  type WorkspaceDevRunnerOptions,
+} from './workspace-dev.js';

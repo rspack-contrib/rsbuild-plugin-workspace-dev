@@ -1,7 +1,7 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
-import { pluginRecursiveDev } from '@rsbuild/plugin-recursive-dev';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+import { pluginWorkspaceDev } from 'rsbuild-plugin-workspace-dev';
 
 import { pluginLogAfterStart } from './test-plugin.js';
 
@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     pluginReact(),
     pluginTypeCheck(),
-    pluginRecursiveDev(),
+    pluginWorkspaceDev(),
     pluginLogAfterStart(),
   ],
 });
