@@ -56,7 +56,7 @@ export class Logger {
 
   static setEndBanner() {
     const endBanner = `------------ ${chalk.hex('#c95ab3').bold('log end:')} ${chalk.green(
-      'All sub project have been started.',
+      'all sub project have been started.',
     )} ------------\n`;
 
     console.log(endBanner);
