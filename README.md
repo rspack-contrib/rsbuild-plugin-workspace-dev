@@ -16,7 +16,7 @@ Start monorepo sub-projects in topological order.
 Install:
 
 ```bash
-npm add rsbuild-plugin-workspace-dev -D
+pnpm add rsbuild-plugin-workspace-dev -D
 ```
 
 Register the plugin in `rsbuild.config.ts`:
@@ -143,6 +143,15 @@ Set the current working directory. The default is the current project directory;
 - Default: `process.cwd()`
 
 Set the directory where the workspace file resides. The default is the current project directory; usually no configuration is needed.
+
+## Frequently Asked Questions
+
+### Project Startup Stuck
+Stuck may be due to slow sub-project builds, etc. The lack of log output is because, by default, sub-project logs are output all at once after startup (to avoid interleaving sub-project logs). You can enable debug mode by adding an environment variable, which will allow sub-project logs to be output in real time.
+
+```
+DEBUG=rsbuild pnpm dev
+```
 
 ## License
 

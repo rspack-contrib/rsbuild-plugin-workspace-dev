@@ -167,7 +167,6 @@ export class WorkspaceDevRunner {
         this.visited[node] = true;
         this.visiting[node] = false;
         debugLog(`Skip visit node: ${node}`);
-        logger.flushStdout();
         logger.emitLogOnce('stdout', `skip visit node: ${name}`);
         return this.start().then(() => resolve());
       }
@@ -188,11 +187,12 @@ export class WorkspaceDevRunner {
 
       child.stdout.on('data', async (data) => {
         const stdout = data.toString();
+        const content = data.toString().replace(/\n$/, '');
         if (this.matched[node]) {
-          const content = data.toString().replace(/\n$/, '');
           logger.emitLogOnce('stdout', content);
           return;
         }
+        debugLog(content, `${name}: `);
         logger.appendLog('stdout', stdout);
         const match = config?.match;
         const matchResult = match

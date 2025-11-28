@@ -16,7 +16,7 @@
 安装：
 
 ```bash
-npm add rsbuild-plugin-workspace-dev -D
+pnpm add rsbuild-plugin-workspace-dev -D
 ```
 
 在 `rsbuild.config.ts` 里注册插件:
@@ -135,6 +135,16 @@ interface ProjectConfig {
 - **默认值：** `process.cwd()`
 
 用于配置 workspace 文件目录，默认值为当前项目目录，一般无需配置。
+
+
+## 常见问题
+
+### 启动项目时卡住
+卡住可能是因为子项目构建过慢等原因，没有日志输出是因为默认情况下子项目日志是启动完成后一次性输出的（为了避免子项目日志混和在一起交错输出），可以通过添加环境变量来开启调试模式，这会让子项目的日志实时输出。
+```
+DEBUG=rsbuild pnpm dev
+```
+
 
 ## License
 
