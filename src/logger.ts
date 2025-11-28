@@ -1,6 +1,6 @@
 import chalk from 'chalk';
-
 import { DEBUG_LOG_TITLE } from './constant.js';
+import { isDebug } from './utils.js';
 
 enum LogType {
   Stdout = 'stdout',
@@ -38,7 +38,8 @@ export class Logger {
   }
 
   emitLogOnce(type: 'stdout' | 'stderr', log: string) {
-    console[logMap[type]](log);
+    const logWithName = `${chalk.hex('#808080').bold(this.name)}: ${log}`;
+    console[logMap[type]](logWithName);
   }
 
   reset(type: 'stdout' | 'stderr') {
@@ -54,6 +55,9 @@ export class Logger {
   }
 
   flushStdout() {
+    if (isDebug) {
+      return;
+    }
     this.setBanner(this.name);
     this.emitLog(LogType.Stdout);
   }
@@ -67,9 +71,8 @@ export class Logger {
   }
 }
 
-export const debugLog = (msg: string) => {
-  const isDebug = process.env.DEBUG === 'rsbuild' || process.env.DEBUG === '*';
+export const debugLog = (msg: string, prefix = DEBUG_LOG_TITLE) => {
   if (isDebug) {
-    console.log(DEBUG_LOG_TITLE + msg);
+    console.log(prefix + msg);
   }
 };

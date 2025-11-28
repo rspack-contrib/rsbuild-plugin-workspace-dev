@@ -24,3 +24,6 @@ export const readPackageJson = async (
 ): Promise<Package['packageJson']> => {
   return readJson<Package['packageJson']>(pkgJsonFilePath);
 };
+
+export const isDebug =
+  process.env.DEBUG === 'rsbuild' || process.env.DEBUG === '*';
