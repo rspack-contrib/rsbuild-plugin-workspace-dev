@@ -11,6 +11,8 @@ Start monorepo sub-projects in topological order.
   <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="license" />
 </p>
 
+English | [简体中文](./README.zh-CN.md)
+
 ## Usage
 
 Install:
