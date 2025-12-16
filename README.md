@@ -106,7 +106,7 @@ interface projects {
   /**
     * Whether to skip starting the current sub-project. The default value is `false`, typically used to skip sub-projects that don't need to be started.
     * When the value is `prune`, the specified project will be pruned, meaning that the project and all its direct and indirect dependencies will not be started by the plugin.
-    * When the value is `true`, the current sub-project will be skipped from starting, but no pruning will be performed, meaning that the project's direct and indirect dependencies will still be started by the plugin.
+    * When the value is `true`, the specified project will be skipped from starting, but no pruning will be performed, meaning that the project's direct and indirect dependencies will still be started by the plugin.
    */
   skip?: boolean;
 }
