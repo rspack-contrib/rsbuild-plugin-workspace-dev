@@ -1,6 +1,6 @@
 {
   "name": "rsbuild-plugin-workspace-dev",
-  "version": "0.0.1",
+  "version": "0.0.0-chore-modify-hook-2025-12-16-20251216024637",
   "description": "An Rsbuild plugin to provides workspace recursive dev functionality for Monorepo topologies.",
   "repository": "https://github.com/rspack-contrib/rsbuild-plugin-workspace-dev",
   "license": "MIT",

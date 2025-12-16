@@ -12,7 +12,7 @@ export function pluginWorkspaceDev(
     name: 'rsbuild-plugin-workspace-dev',
     async setup(api) {
       const rootPath = api.context.rootPath;
-      api.onBeforeStartDevServer(async () => {
+      api.modifyRsbuildConfig(async () => {
         const runner = new WorkspaceDevRunner({
           cwd: rootPath,
           ...options,
