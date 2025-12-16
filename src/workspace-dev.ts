@@ -27,7 +27,7 @@ export interface WorkspaceDevRunnerOptions {
     {
       match?: (stdout: string) => boolean;
       command?: string;
-      skip?: boolean | 'prune';
+      skip?: boolean | 'only';
     }
   >;
   startCurrent?: boolean;
@@ -86,14 +86,14 @@ export class WorkspaceDevRunner {
         packageJson,
         path: dir,
       };
-      if (this.options.projects?.[name]?.skip === 'prune') {
+      const skip = this.options.projects?.[name]?.skip;
+      if (skip && skip !== 'only') {
         console.log(
-          `${PLUGIN_LOG_TITLE} Prune project ${name} and its dependencies because it is marked as skip: prune`,
+          `${PLUGIN_LOG_TITLE} Prune project ${name} and its dependencies because it is marked as skip: true`,
         );
         return;
       }
       this.graph.setNode(name, node);
-      // this.visited[name] = this.options.projects?.[name]?.skip ? true : false;
       this.visited[name] = false;
       this.visiting[name] = false;
       this.matched[name] = false;
@@ -110,10 +110,8 @@ export class WorkspaceDevRunner {
           (p) => p.packageJson.name === depName,
         );
 
-        if (
-          isInternalDep &&
-          this.options.projects?.[depName]?.skip !== 'prune'
-        ) {
+        const skip = this.options.projects?.[depName]?.skip;
+        if (isInternalDep && skip !== true) {
           this.graph.setEdge(packageName, depName);
           this.checkGraph();
           const depPackage = packages.find(

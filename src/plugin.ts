@@ -12,12 +12,25 @@ export function pluginWorkspaceDev(
     name: 'rsbuild-plugin-workspace-dev',
     async setup(api) {
       const rootPath = api.context.rootPath;
-      api.modifyRsbuildConfig(async () => {
+      api.onBeforeStartDevServer(async () => {
         const runner = new WorkspaceDevRunner({
           cwd: rootPath,
           ...options,
         });
+        await runner.init();
+        await runner.start();
+        Logger.setEndBanner();
+      });
 
+      api.onBeforeBuild(async ({ isWatch, isFirstCompile }) => {
+        if (!isWatch || !isFirstCompile) {
+          return;
+        }
+
+        const runner = new WorkspaceDevRunner({
+          cwd: rootPath,
+          ...options,
+        });
         await runner.init();
         await runner.start();
         Logger.setEndBanner();
