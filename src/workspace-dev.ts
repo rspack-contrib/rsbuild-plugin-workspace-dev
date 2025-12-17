@@ -119,11 +119,7 @@ export class WorkspaceDevRunner {
               initNode(depPackage);
             }
           } else {
-            const logger = new Logger({
-              name: depName,
-            });
-            logger.emitLogOnce(
-              'stdout',
+            debugLog(
               `Prune project ${depName} and its dependencies because it is marked as skip: true`,
             );
           }
