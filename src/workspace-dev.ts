@@ -3,7 +3,6 @@ import { spawn } from 'child_process';
 import graphlib, { Graph } from 'graphlib';
 import { join } from 'path';
 import {
-  MODERN_MODULE_READY_MESSAGE,
   PACKAGE_JSON,
   PLUGIN_LOG_TITLE,
   RSLIB_READY_MESSAGE,
@@ -212,7 +211,6 @@ export class WorkspaceDevRunner {
         const matchResult = match
           ? match(stdout)
           : stdout.match(RSLIB_READY_MESSAGE) ||
-            stdout.match(MODERN_MODULE_READY_MESSAGE) ||
             stdout.match(TSUP_READY_MESSAGE);
 
         if (matchResult) {
